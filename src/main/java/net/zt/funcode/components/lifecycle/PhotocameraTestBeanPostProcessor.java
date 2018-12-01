@@ -1,10 +1,9 @@
 package net.zt.funcode.components.lifecycle;
 
+import net.zt.funcode.components.Camera;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
-
-import net.zt.funcode.components.Camera;
 
 @Component
 public class PhotocameraTestBeanPostProcessor implements BeanPostProcessor {

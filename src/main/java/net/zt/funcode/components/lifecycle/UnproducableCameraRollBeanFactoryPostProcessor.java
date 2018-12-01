@@ -1,12 +1,12 @@
 package net.zt.funcode.components.lifecycle;
 
+import net.zt.funcode.annotation.OtherCamera;
+import net.zt.funcode.annotation.UnproducableCameraRoll;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
-
-import net.zt.funcode.annotation.UnproducableCameraRoll;
 
 @Component
 public class UnproducableCameraRollBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
@@ -46,6 +46,13 @@ public class UnproducableCameraRollBeanFactoryPostProcessor implements BeanFacto
 					 
 					 //меняем класс будущего бина!
 				     beanDefinition.setBeanClassName(usingCameraRollName.getName());	
+				}
+
+				OtherCamera myAnnotation = beanClass.getAnnotation(OtherCamera.class);
+
+				if(myAnnotation!=null){
+					Class usingCameraName = myAnnotation.usingCameraClass();
+					beanDefinition.setBeanClassName(usingCameraName.getName());
 				}
 				
 			} catch (ClassNotFoundException e) {

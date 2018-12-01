@@ -1,13 +1,13 @@
 package net.zt.funcode.components;
 
-import javax.annotation.PostConstruct;
-
+import net.zt.funcode.annotation.OtherCamera;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+
+@OtherCamera(usingCameraClass = MyCamera.class)
 @Component("camera")
 public class CameraImpl implements Camera {
 	

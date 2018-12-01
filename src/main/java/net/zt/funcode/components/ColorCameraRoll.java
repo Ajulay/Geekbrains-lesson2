@@ -1,12 +1,10 @@
 package net.zt.funcode.components;
 
-import javax.annotation.PostConstruct;
-
+import net.zt.funcode.annotation.UnproducableCameraRoll;
 import org.springframework.stereotype.Component;
 
-import net.zt.funcode.annotation.UnproducableCameraRoll;
-
-
+@Component("cameraRoll")
+@UnproducableCameraRoll(usingCameraRollClass=BlackAndWhiteCameraRoll.class)
 public class ColorCameraRoll implements CameraRoll {
 
 	public void processing() {
